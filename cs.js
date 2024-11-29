@@ -50,23 +50,10 @@ sr.reveal('.home__img, .about__subtitle, .about__text, .skills__img',{delay: 400
 sr.reveal('.home__social-icon',{ interval: 200}); 
 sr.reveal('.skills__data, .work__img, .contact__input',{interval: 200}); 
 
- // The validateForm function is called when the form is submitted
- function validateForm(event) {
-    event.preventDefault();  // Prevent the form from submitting immediately
+document.getElementById('contactForm').addEventListener('submit', function(event) {
+    event.preventDefault(); 
 
-    // Show a confirmation dialog
-    var confirmation = confirm("Are you sure you want to submit?");
+    alert('Your message has been sent successfully!');
     
-    // If the user confirms, submit the form
-    if (confirmation) {
-        alert("Successfully Submitted");  // You can customize this alert or replace it with a visual message
-        
-        // Submit the form
-        event.target.submit();  // This triggers the form submission
-    } else {
-        return false;  // If the user cancels, do nothing (form won't be submitted)
-    }
-}
-
-// Attach the validateForm function to the form's submit event
-document.getElementById('contactForm').addEventListener('submit', validateForm);
+    this.reset();
+  });
